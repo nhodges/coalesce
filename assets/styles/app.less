@@ -1,0 +1,104 @@
+coverslider {
+  display: flex;
+  height: 100vh;
+  position: relative;
+  .coverslider__nav {
+    background-color: #333;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 32px;
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
+    z-index: 100;
+  }
+  .coverslider__nav--left {
+    left: 50px;
+  }
+  .coverslider__nav--right {
+    right: 50px;
+  }
+}
+.coverpage {
+  // display: flex;
+  // height: 100vh;
+  background-image: url(/images/landingpage-sustainableagriculture.jpg);
+  background-position: center center;
+  background-size: cover;
+  padding-top: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -ms-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  &.current {
+    opacity: 1;
+  }
+}
+
+.ct__sidebar {
+  // z-index: 102 !important;
+}
+
+.ct__mobilemenu__button__wrap {
+  padding: 22px 21px;
+  float: left;
+  z-index: 1;
+  position: relative;
+  .ct__mobilemenu__button {
+    margin: 0;
+    cursor: pointer;
+    width: 18px;
+    height: 13px;
+    position: relative;
+    span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: #efefef;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      -webkit-transition: all 0.2s ease-out;
+      -moz-transition: all 0.2s ease-out;
+      -ms-transition: all 0.2s ease-out;
+      -o-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out;
+    }
+    span.top {
+      top: 0;
+    }
+    &.active {
+      span {
+        transform: rotate(45deg) translate(-4px, -4px);
+        -webkit-transform: rotate(45deg) translate(-4px, -4px);
+        -moz-transform: rotate(45deg) translate(-4px, -4px);
+        -o-transform: rotate(45deg) translate(-4px, -4px);
+        -ms-transform: rotate(45deg) translate(-4px, -4px);
+      }
+      span.top {
+        transform: rotate(-45deg) translate(-4px, 4px);
+        -webkit-transform: rotate(-45deg) translate(-4px, 4px);
+        -moz-transform: rotate(-45deg) translate(-4px, 4px);
+        -o-transform: rotate(-45deg) translate(-4px, 4px);
+        -ms-transform: rotate(-45deg) translate(-4px, 4px);
+      }
+    }
+  }
+}
+
+.ct__landingpage {
+  > nav.ui.inverted.menu {
+    background-color: rgba(27, 28, 29, .8);
+  }
+}

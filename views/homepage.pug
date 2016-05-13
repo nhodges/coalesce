@@ -1,0 +1,11 @@
+extends layouts/base.pug
+
+block append vars
+  - pageClasses.push('ct__landingpage')
+
+block body-content
+  .pusher
+    coverslider
+    //- .coverpage("(click)"="test = 1")
+    //-   | Hi {{test}}
+    my-app
