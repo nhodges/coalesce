@@ -55,6 +55,14 @@ html
       .ui.container
         a.header.item Coalesce
         a.item Get Involved
+        if req.session.authenticated
+          .ui.simple.dropdown.item.right
+            = req.session.user.auth.name
+            i.dropdown.icon
+            .menu
+              a.item(href='/auth/logout') Log Out
+        else
+          a.item.blue.active.right(href='/auth/login?type=facebook') Connect
         .item.right.mobile.tablet.only.ct__mobilemenu__button__wrap.js-sidebar-toggle
           .ct__mobilemenu__button
             span.top

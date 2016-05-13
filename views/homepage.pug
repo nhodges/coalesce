@@ -9,3 +9,6 @@ block body-content
     //- .coverpage("(click)"="test = 1")
     //-   | Hi {{test}}
     my-app
+    div(style='background-color: white;')
+      if req.session.authenticated
+        = JSON.stringify(req.session)
