@@ -69,9 +69,10 @@ html
           a.item.blue.active.right.tablet.or.lower.hidden(href='/auth/login?type=facebook') Connect
           a.item.blue.active.mobile.tablet.only(href='/auth/login?type=facebook') Connect
     sidebar.ui.sidebar.inverted.vertical.menu.ct__sidebar.js-sidebar
-      a.item 1
-      a.item 1
-      a.item 1
+      a.item View Profile
+      a.item Change Settings
+      if req.session.authenticated
+        a.item(href='/auth/logout') Log Out
     block body-content
     script(src="/js/dependencies/sails.io.js")
     script.
