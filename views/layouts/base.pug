@@ -53,20 +53,21 @@ html
   body(class=(pageClasses || []).join(' '))
     nav.ui.fixed.inverted.menu
       .ui.container
+        .item.mobile.tablet.only.ct__mobilemenu__button__wrap.js-sidebar-toggle
+          .ct__mobilemenu__button
+            span.top
+            span
         a.header.item Coalesce
-        a.item Get Involved
+        a.item.tablet.or.lower.hidden Get Involved
         if req.session.authenticated
-          .ui.simple.dropdown.item.right
+          .ui.simple.dropdown.item.right.tablet.or.lower.hidden
             = req.session.user.auth.name
             i.dropdown.icon
             .menu
               a.item(href='/auth/logout') Log Out
         else
-          a.item.blue.active.right(href='/auth/login?type=facebook') Connect
-        .item.right.mobile.tablet.only.ct__mobilemenu__button__wrap.js-sidebar-toggle
-          .ct__mobilemenu__button
-            span.top
-            span
+          a.item.blue.active.right.tablet.or.lower.hidden(href='/auth/login?type=facebook') Connect
+          a.item.blue.active.mobile.tablet.only(href='/auth/login?type=facebook') Connect
     sidebar.ui.sidebar.inverted.vertical.menu.ct__sidebar.js-sidebar
       a.item 1
       a.item 1
