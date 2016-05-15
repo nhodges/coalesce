@@ -1,4 +1,6 @@
 import {Component} from 'angular2/core';
+import {Router,RouteConfig,ROUTER_DIRECTIVES} from 'angular2/router';
+
 @Component({
     selector: 'coverslider',
     template: `
@@ -6,8 +8,8 @@ import {Component} from 'angular2/core';
       <div *ngFor="let page of pages; let i = index" class="coverpage" [ngStyle]="{'background-image': 'url(' + page.image + ')'}" [class.current]="pageno == i">
         <div class="table">
           <div class="table__cell table__cell--vmiddle">
-            <h1>{{ page.heading }}</h1>
-            <h3>{{ page.description }}</h3>
+            <h1><a [attr.href]="pages[pageno].uri">{{ page.heading }}</a></h1>
+            <h3><a [attr.href]="pages[pageno].uri">{{ page.description }}</a></h3>
           </div>
         </div>
       </div>
@@ -20,17 +22,26 @@ export class AppCoverslider {
     {
       image: '/images/landingpage-sustainableagriculture.jpg',
       heading: 'Sustainable Agriculture',
-      description: 'We can do it.'
+      description: 'We can do it.',
+      uri: '/category/sustainable-agriculture'
     },
     {
       image: '/images/landingpage-soupkitchen.jpg',
       heading: 'World Hunger',
-      description: 'We can end it.'
+      description: 'We can end it.',
+      uri: '/category/world-hunger'
     },
     {
       image: '/images/landingpage-animalcruelty.jpg',
       heading: 'Animal Cruelty',
-      description: 'We can stop it.'
+      description: 'We can stop it.',
+      uri: '/category/animal-cruelty'
+    },
+    {
+      image: '/images/landingpage-coralreef.jpg',
+      heading: 'The Environment',
+      description: 'We can save it.',
+      uri: '/category/environmentalism'
     }
   ]
 }
