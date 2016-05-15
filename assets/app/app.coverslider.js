@@ -52,10 +52,14 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 ngAfterViewInit() {
                     var self = this, hammer = new window.Hammer(self.el.nativeElement);
                     hammer.on('swiperight', function (e) {
-                        alert(self.pageno - 1);
+                        if (self.pageno > 0) {
+                            self.pageno--;
+                        }
                     });
                     hammer.on('swipeleft', function (e) {
-                        alert(self.pageno + 1);
+                        if (self.pageno < self.pages.length) {
+                            self.pageno++;
+                        }
                     });
                 }
             };
