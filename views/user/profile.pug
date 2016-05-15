@@ -1,0 +1,15 @@
+extends ../layouts/base.pug
+
+block append vars
+  - pageClasses.push('ct__userprofile')
+
+block body-content
+  header
+    .shadow
+  .ui.container.ct__userprofile__info
+    .ct__userprofile__info__picture__wrap
+      img.ct__userprofile__info__picture(src='http://semantic-ui.com/images/avatar2/large/matthew.png')
+    .ct__userprofile__info__name
+      h2 #{auth.firstName} #{auth.lastName}
+  .ui.container.ct__userprofile__content
+    //- pre= JSON.stringify(auth, 1, 2)

@@ -3,8 +3,9 @@ block vars
 doctype html
 html
   head
-    title
+    title= pageTitle || "Coalesce"
     // Viewport mobile tag for sensible mobile support
+    //- base(href="MedicheckAngular/")
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     //
       Stylesheets and Preprocessors
@@ -32,27 +33,31 @@ html
     // HammerJS
     script(src='//cdn.jsdelivr.net/hammerjs/2.0.4/hammer.js')
     // Angular 2
-    script(src='node_modules/es6-shim/es6-shim.min.js')
-    script(src='node_modules/systemjs/dist/system-polyfills.js')
-    script(src='node_modules/angular2/bundles/angular2-polyfills.js')
-    script(src='node_modules/systemjs/dist/system.src.js')
-    script(src='node_modules/rxjs/bundles/Rx.js')
-    script(src='node_modules/angular2/bundles/angular2.dev.js')
-    script.
-      System.config({
-        map: {
-          rxjs: 'node_modules/rxjs' // added this map section
-        },
-        packages: {
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
+    script(src='/node_modules/es6-shim/es6-shim.min.js')
+    script(src='/node_modules/systemjs/dist/system-polyfills.js')
+    script(src='/node_modules/angular2/bundles/angular2-polyfills.js')
+    script(src='/node_modules/systemjs/dist/system.src.js')
+    script(src='/node_modules/rxjs/bundles/Rx.js')
+    script(src='/node_modules/angular2/bundles/angular2.dev.js')
+    block script-system-import
+      script.
+        System.config({
+          /*baseURL: '/',*/
+          paths: {
+            'app/*': '/app/*'
           },
-          'rxjs': {defaultExtension: 'js'} // and added this to packages
-        }
-      });
-      System.import('/app/main').then(null, console.error.bind(console));
-      window.Hammer = Hammer;
+          map: {
+            rxjs: '/node_modules/rxjs' // added this map section
+          },
+          packages: {
+            app: {
+              format: 'register',
+              defaultExtension: 'js'
+            },
+            'rxjs': {defaultExtension: 'js'} // and added this to packages
+          }
+        });
+        window.Hammer = Hammer;
   body(class=(pageClasses || []).join(' '))
     nav.ui.fixed.inverted.menu
       .ui.container
@@ -67,16 +72,18 @@ html
             = req.session.user.auth.name
             i.dropdown.icon
             .menu
+              a.item(href='/user/' + req.session.user.id) Profile
               a.item(href='/auth/logout') Log Out
         else
           a.item.blue.active.right.tablet.or.lower.hidden(href='/auth/login?type=facebook') Connect
           a.item.blue.active.mobile.tablet.only(href='/auth/login?type=facebook') Connect
     sidebar.ui.sidebar.inverted.vertical.menu.ct__sidebar.js-sidebar
-      a.item View Profile
+      a.item(href='/user/' + req.session.user.id) View Profile
       a.item Change Settings
       if req.session.authenticated
         a.item(href='/auth/logout') Log Out
-    block body-content
+    .pusher
+      block body-content
     script(src="/js/dependencies/sails.io.js")
     script.
       $('.js-sidebar-toggle').on('click', function(e) {

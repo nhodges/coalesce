@@ -3,10 +3,6 @@
 @import 'components/table.less';
 @import 'components/ng/coverslider.less';
 
-body {
-  font-family: Tahoma,Verdana,Arial;
-}
-
 .ct__sidebar {
   // z-index: 102 !important;
   padding-top: 40px;
@@ -62,5 +58,81 @@ body {
 .ct__landingpage {
   > nav.ui.inverted.menu {
     background-color: rgba(27, 28, 29, .8);
+  }
+}
+
+
+.ct__userprofile {
+  header {
+    background: #ffa84c; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffa84c 0%, #ff7b0d 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ffa84c 0%,#ff7b0d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa84c', endColorstr='#ff7b0d',GradientType=0 ); /* IE6-9 */
+    display: flex;
+    height: 25vh;
+    overflow: hidden;
+    position: relative;
+    .shadow {
+      bottom: 0;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, .5);
+      left: -20px;
+      position: absolute;
+      right: -20px;
+      top: 0;
+    }
+  }
+
+  .ct__userprofile__info {
+    position: absolute;
+    top: 12.5vh;
+    z-index: 200;
+    @media only screen and (min-width: 768px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @media only screen and (max-width: 767px) {
+      width: 100% !important;
+    }
+    .ct__userprofile__info__picture__wrap {
+      display: block;
+      width: 25vh;
+      &:before {
+        position: absolute;
+        content: '';
+        width: 25vh;
+        height: 50%; /* Half of the original height */
+        top: 0;
+        left: 0;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+        z-index: -1;
+      }
+      .ct__userprofile__info__picture {
+        display: block;
+        max-width: 100%;
+      }
+    }
+    .ct__userprofile__info__name {
+      padding-left: 25px;
+      position: absolute;
+      left: 25vh;
+      top: 0;
+      h2 {
+        color: #fff;
+        font-family: 'WF Segoe UI';
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: -2px;
+        line-height: 12.5vh;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+        @media only screen and (max-width: 767px) {
+          font-size: 24px;
+          letter-spacing: -2px;
+        }
+      }
+    }
+  }
+  .ct__userprofile__content {
+    margin-top: 12.5vh;
   }
 }

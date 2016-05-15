@@ -3,12 +3,15 @@ extends layouts/base.pug
 block append vars
   - pageClasses.push('ct__landingpage')
 
+block append script-system-import
+  script.
+    System.import('/app/main').then(null, console.error.bind(console));
+
 block body-content
-  .pusher
-    coverslider
-    //- .coverpage("(click)"="test = 1")
-    //-   | Hi {{test}}
-    my-app
-    //- div(style='background-color: white;')
-    //-   if req.session.authenticated
-    //-     = JSON.stringify(req.session)
+  coverslider
+  //- .coverpage("(click)"="test = 1")
+  //-   | Hi {{test}}
+  my-app
+  //- div(style='background-color: white;')
+  //-   if req.session.authenticated
+  //-     = JSON.stringify(req.session)

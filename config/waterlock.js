@@ -26,7 +26,15 @@ module.exports.waterlock = {
         name: "waterlock-facebook-auth",
         appId: process.env.FB_APP_ID,
         appSecret: process.env.FB_APP_SECRET,
-        // redirectUri: 'redirectUri'
+        // redirectUri: 'redirectUri',
+        fieldMap: {
+            // <model-field>: <facebook-field>,
+            'firstName': 'first_name',
+            'lastName': 'last_name',
+            'gender': 'gender',
+            'timezone': 'timezone',
+            'email': 'email'
+        }
     },
     {
       name:'waterlock-local-auth',
