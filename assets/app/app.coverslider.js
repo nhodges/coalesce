@@ -27,25 +27,25 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                             image: '/images/landingpage-sustainableagriculture.jpg',
                             heading: 'Sustainable Agriculture',
                             description: 'We can do it.',
-                            uri: '/category/sustainable-agriculture'
+                            uri: '/cause/sustainable-agriculture'
                         },
                         {
                             image: '/images/landingpage-soupkitchen.jpg',
                             heading: 'World Hunger',
                             description: 'We can end it.',
-                            uri: '/category/world-hunger'
+                            uri: '/cause/world-hunger'
                         },
                         {
                             image: '/images/landingpage-animalcruelty.jpg',
                             heading: 'Animal Cruelty',
                             description: 'We can stop it.',
-                            uri: '/category/animal-cruelty'
+                            uri: '/cause/animal-cruelty'
                         },
                         {
                             image: '/images/landingpage-coralreef.jpg',
                             heading: 'The Environment',
                             description: 'We can save it.',
-                            uri: '/category/environmentalism'
+                            uri: '/cause/environmentalism'
                         }
                     ];
                 }

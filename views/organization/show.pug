@@ -1,0 +1,10 @@
+extends ../layouts/base.pug
+
+block append vars
+  - pageClasses.push('ct__organization')
+
+block body-content
+  header
+    .shadow
+  .ui.container.ct__userprofile__content
+    pre= JSON.stringify(organization, 1, 2)
