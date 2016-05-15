@@ -9,13 +9,19 @@
 module.exports = {
 
   attributes: require('waterlock').models.user.attributes({
-    
+
     /* e.g.
     nickname: 'string'
     */
-    
+
+    slug: {
+      type: 'string',
+      unique: true,
+      notRegex: /^[a-f\d]{24}$/i
+    }
+
   }),
-  
+
   beforeCreate: require('waterlock').models.user.beforeCreate,
   beforeUpdate: require('waterlock').models.user.beforeUpdate
 };
