@@ -19,7 +19,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             }],
         execute: function() {
             AppCoverslider = class AppCoverslider {
-                constructor() {
+                constructor(el) {
+                    this.el = el;
                     this.pageno = 0;
                     this.pages = [
                         {
@@ -48,6 +49,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                         }
                     ];
                 }
+                ngAfterViewInit() {
+                    var self = this, hammer = new window.Hammer(self.el.nativeElement);
+                    hammer.on('swiperight', function (e) {
+                        self.pageno--;
+                    });
+                    hammer.on('swipeleft', function (e) {
+                        self.pageno--;
+                    });
+                }
             };
             AppCoverslider = __decorate([
                 core_1.Component({
@@ -65,7 +75,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
       <a class="coverslider__nav coverslider__nav--right" (click)="pageno = pageno + 1" [hidden]="pageno == pages.length - 1">&gt;</a>'
     `
                 }), 
-                __metadata('design:paramtypes', [])
+                __metadata('design:paramtypes', [core_1.ElementRef])
             ], AppCoverslider);
             exports_1("AppCoverslider", AppCoverslider);
         }

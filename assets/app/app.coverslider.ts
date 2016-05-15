@@ -1,5 +1,4 @@
-import {Component} from 'angular2/core';
-import {Router,RouteConfig,ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component, ElementRef, AfterViewInit} from 'angular2/core';
 
 @Component({
     selector: 'coverslider',
@@ -44,4 +43,15 @@ export class AppCoverslider {
       uri: '/category/environmentalism'
     }
   ]
+  constructor(private el:ElementRef){}
+  ngAfterViewInit() {
+    var self = this
+      , hammer = new window.Hammer(self.el.nativeElement);
+    hammer.on('swiperight', function(e) {
+      self.pageno--
+    });
+    hammer.on('swipeleft', function(e) {
+      self.pageno--
+    });
+  }
 }

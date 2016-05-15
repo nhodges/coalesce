@@ -29,6 +29,8 @@ html
     // Semantic UI (JS)
     script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.slim.min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js')
+    // HammerJS
+    script(src='//cdn.jsdelivr.net/hammerjs/2.0.4/hammer.js')
     // Angular 2
     script(src='node_modules/es6-shim/es6-shim.min.js')
     script(src='node_modules/systemjs/dist/system-polyfills.js')
@@ -50,6 +52,7 @@ html
         }
       });
       System.import('/app/main').then(null, console.error.bind(console));
+      window.Hammer = Hammer;
   body(class=(pageClasses || []).join(' '))
     nav.ui.fixed.inverted.menu
       .ui.container
