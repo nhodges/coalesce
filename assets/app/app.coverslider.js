@@ -52,10 +52,10 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 ngAfterViewInit() {
                     var self = this, hammer = new window.Hammer(self.el.nativeElement);
                     hammer.on('swiperight', function (e) {
-                        self.pageno--;
+                        alert(self.pageno - 1);
                     });
                     hammer.on('swipeleft', function (e) {
-                        self.pageno--;
+                        alert(self.pageno + 1);
                     });
                 }
             };
