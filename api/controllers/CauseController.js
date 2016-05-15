@@ -16,7 +16,12 @@ module.exports = {
    	}, function(err, cause) {
       if(err)    return res.render('500.ejs');
       if(!cause) return res.render('404.ejs');
-      res.render('cause/show.pug', { cause: cause });
+			Organization.find({
+				causes: cause.slug
+			}, function(err, organizations) {
+	      if(err) return res.render('500.ejs');
+				res.render('cause/show.pug', { cause: cause, organizations: organizations });
+			});
     });
   }
 
