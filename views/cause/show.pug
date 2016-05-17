@@ -6,7 +6,30 @@ block append vars
 block body-content
   header
     .shadow
-  .ui.container.ct__userprofile__content
-    pre= JSON.stringify(cause, 1, 2)
-
-    pre= JSON.stringify(organizations, 1, 2)
+    .table
+      .table__cell.table__cell--vmiddle
+        h1= cause.name
+        //- h5= cause.description
+  .ui.container.ct__causes__content
+    .ui.four.doubling.stackable.cards
+      each organization in organizations
+        .ui.fluid.card.ct__cause__card
+          .content
+            a.ct__cause__card__name(href='/organization/' + organization.slug)= organization.name
+          a.image(href='/organization/' + organization.slug)
+            .ar-4x3(style='background-image: url(' + organization.logo + '); background-position: center center; background-size: cover;')
+          .content
+            if organization.donate && organization.donate.money
+              a.ui.icon.basic.button(data-content='Give ' + organization.name + ' your money!', href=organization.donate.money, target='_blank')
+                i.money.icon
+            if organization.donate && organization.donate.things
+              a.ui.icon.basic.button(data-content='Give ' + organization.name + ' your things!', href=organization.things, target='_blank')
+                i.gift.icon
+            if organization.donate && organization.donate.time
+              a.ui.icon.basic.button(data-content='Give ' + organization.name + ' your time!', href=organization.time, target='_blank')
+                i.users.icon
+            if !organization.donate || Object.keys(organization.donate).length == 0
+              a.ui.icon.basic.button(data-content='Contact ' + organization.name + ' to see how you can help!', target='_blank')
+                i.mail.icon
+          //- pre= JSON.stringify(organization, 1, 2)
+    //- pre= JSON.stringify(organizations, 1, 2)

@@ -5,14 +5,17 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+var ObjectId = require('mongodb').ObjectID;
+
 module.exports = {
 
 	findOne: function(req, res) {
+		var id = req.param('id');
     Cause.findOne({
-     $or: [
-            { '_id'  : req.param('id') },
-            { 'slug' : req.param('id') }
-          ]
+      $or: [
+             { '_id'  : id.match(/^[0-9a-fA-F]{24}$/) ? ObjectId(id) : id },
+             { 'slug' : id }
+           ]
    	}, function(err, cause) {
       if(err)    return res.render('500.ejs');
       if(!cause) return res.render('404.ejs');
