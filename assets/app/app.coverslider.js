@@ -46,6 +46,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                             heading: 'The Environment',
                             description: 'We can save it.',
                             uri: '/cause/environmentalism'
+                        },
+                        {
+                            image: '/images/landingpage-digitalrights.jpg',
+                            heading: 'Digital Freedom',
+                            description: 'We can protect it.',
+                            uri: '/cause/digital-rights'
                         }
                     ];
                 }
@@ -78,7 +84,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
       </div>
       <a class="coverslider__nav coverslider__nav--right" (click)="pageno = pageno + 1" [hidden]="pageno == pages.length - 1">&gt;</a>'
     `
-                }), 
+                }),
                 __metadata('design:paramtypes', [core_1.ElementRef])
             ], AppCoverslider);
             exports_1("AppCoverslider", AppCoverslider);
