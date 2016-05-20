@@ -39,7 +39,8 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "grunt test"
   },
   "main": "app.js",
   "repository": {
@@ -47,5 +48,11 @@
     "url": "git://github.com/nhodges/coalesce.git"
   },
   "author": "nhodges",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "assert": "^1.4.0",
+    "grunt-mocha-test": "^0.12.7",
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.4"
+  }
 }
