@@ -6,5 +6,14 @@ block append vars
 block body-content
   header
     .shadow
-  .ui.container.ct__userprofile__content
+  .ui.container.ct__organization__info
+    .ct__organization__info__picture__wrap
+      .ct__organization__info__picture(style='background-image: url(' + organization.logo + ');')
+    .ct__organization__info__name
+      h2 #{organization.name}
+    .ct__organization__info__blurb
+      .table
+        .table__cell.table__cell--vmiddle
+          h4 #{organization.blurb}
+  .ui.container.ct__organization__content
     pre= JSON.stringify(organization, 1, 2)

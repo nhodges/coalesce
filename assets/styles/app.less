@@ -135,6 +135,72 @@
       top: 0;
     }
   }
+  .ct__organization__info {
+    position: absolute;
+    top: 12.5vh;
+    z-index: 200;
+    @media only screen and (min-width: 768px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @media only screen and (max-width: 767px) {
+      width: 100% !important;
+    }
+    .ct__organization__info__picture__wrap {
+      display: block;
+      width: 25vh;
+      &:before {
+        position: absolute;
+        content: '';
+        width: 25vh;
+        height: 50%; /* Half of the original height */
+        top: 0;
+        left: 0;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+        z-index: -1;
+      }
+      .ct__organization__info__picture {
+        background-position: center center;
+        background-size: cover;
+        display: block;
+        max-width: 100%;
+        padding-bottom: 100%;
+        width: 100%;
+      }
+    }
+    .ct__organization__info__name {
+      padding-left: 25px;
+      position: absolute;
+      left: 25vh;
+      top: 0;
+      h2 {
+        color: #fff;
+        font-family: 'WF Segoe UI';
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: -2px;
+        line-height: 12.5vh;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+        @media only screen and (max-width: 767px) {
+          font-size: 24px;
+          letter-spacing: -2px;
+        }
+      }
+    }
+    .ct__organization__info__blurb {
+      padding-left: 25px;
+      position: absolute;
+      left: 25vh;
+      top: 12.5vh;
+      > .table {
+        height: 12.5vh;
+        width: 100%;
+      }
+    }
+  }
+  .ct__organization__content {
+    margin-top: 12.5vh;
+  }
 }
 
 .ct__userprofile {
