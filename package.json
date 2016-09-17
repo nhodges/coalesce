@@ -51,7 +51,7 @@
   "license": "",
   "devDependencies": {
     "assert": "^1.4.0",
-    "grunt-mocha-test": "^0.12.7",
+    "grunt-mocha-test": "^0.13.1",
     "mocha": "^2.4.5",
     "sinon": "^1.17.4"
   }
