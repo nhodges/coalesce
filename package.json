@@ -23,7 +23,7 @@
     "grunt-sails-linker": "~0.10.1",
     "grunt-sync": "0.5.2",
     "include-all": "~0.1.6",
-    "kerberos": "0.0.21",
+    "kerberos": "0.0.22",
     "pug": "^0.1.0",
     "rc": "1.1.6",
     "reflect-metadata": "0.1.2",
