@@ -6,7 +6,7 @@
   "keywords": [],
   "dependencies": {
     "angular2": "^2.0.0-beta.17",
-    "ejs": "2.4.1",
+    "ejs": "2.5.3",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.35.1",
     "express": "^4.13.4",
