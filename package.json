@@ -35,7 +35,7 @@
     "waterlock": "^0.1.0",
     "waterlock-facebook-auth": "nhodges/waterlock-facebook-auth",
     "waterlock-local-auth": "0.0.6",
-    "zone.js": "^0.6.12"
+    "zone.js": "^0.8.10"
   },
   "scripts": {
     "debug": "node debug app.js",
